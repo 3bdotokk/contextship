@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture — ContextShip</title>
+    <meta name="description" content="ContextShip system architecture. Explore the layered design of semantic context infrastructure for AI agents.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">ContextShip</a>
+            <ul class="nav-links">
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="architecture.html" class="active">Architecture</a></li>
+                <li><a href="ecosystem.html">Open Source</a></li>
+                <li><a href="why-context.html">Why Context</a></li>
+            </ul>
+            <a href="docs.html#quickstart" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero-arch">
+        <div class="container">
+            <span class="badge">System Architecture</span>
+            <h1>How ContextShip Works</h1>
+            <p class="lead">A layered, observable architecture for deterministic context delivery. From agent request to semantic execution—every layer is independently scalable.</p>
+        </div>
+    </section>
+
+    <section class="pipeline-section">
+        <div class="container">
+            <div class="pipeline-header">
+                <h2>The Context Pipeline</h2>
+                <p>Context flows through six deterministic layers. Each layer transforms, validates, and routes context before passing to the next.</p>
+            </div>
+            <div class="pipeline">
+                <div class="pipeline-node" data-layer="1">
+                    <div class="node-glow"></div>
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+                    </div>
+                    <div class="node-content">
+                        <span class="node-label">Layer 1</span>
+                        <h3>AI Agents</h3>
+                        <p>Agent requests enter the system via SDK, API, or MCP protocol. Each request carries intent, constraints, and governance metadata.</p>
+                        <div class="node-metrics">
+                            <span class="metric"><span class="metric-value">12</span> active agents</span>
+                            <span class="metric"><span class="metric-value">847</span> req/s</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-pulse"></div>
+                    <span class="connector-label">Intent + Constraints</span>
+                </div>
+                <div class="pipeline-node" data-layer="2">
+                    <div class="node-glow"></div>
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="node-content">
+                        <span class="node-label">Layer 2</span>
+                        <h3>Context Router</h3>
+                        <p>Deterministic routing engine selects optimal context sources based on semantic matching, agent state, and historical patterns.</p>
+                        <div class="node-metrics">
+                            <span class="metric"><span class="metric-value">&lt;10ms</span> routing</span>
+                            <span class="metric"><span class="metric-value">99.97%</span> accuracy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-pulse"></div>
+                    <span class="connector-label">Route Decision</span>
+                </div>
+                <div class="pipeline-node" data-layer="3">
+                    <div class="node-glow"></div>
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+                    </div>
+                    <div class="node-content">
+                        <span class="node-label">Layer 3</span>
+                        <h3>Semantic Layer</h3>
+                        <p>Validates coherence, deduplicates content, applies compression, and ensures semantic consistency across context fragments.</p>
+                        <div class="node-metrics">
+                            <span class="metric"><span class="metric-value">0.96</span> coherence</span>
+                            <span class="metric"><span class="metric-value">3.2x</span> compression</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-pulse"></div>
+                    <span class="connector-label">Validated Context</span>
+                </div>
+                <div class="pipeline-node" data-layer="4">
+                    <div class="node-glow"></div>
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </div>
+                    <div class="node-content">
+                        <span class="node-label">Layer 4</span>
+                        <h3>Memory Orchestration</h3>
+                        <p>Three-tier memory hierarchy (working, episodic, semantic) with vector indexing, temporal queries, and cross-agent synchronization.</p>
+                        <div class="node-metrics">
+                            <span class="metric"><span class="metric-value">1.2TB</span> indexed</span>
+                            <span class="metric"><span class="metric-value">&lt;5ms</span> recall</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-pulse"></div>
+                    <span class="connector-label">Memory + Context</span>
+                </div>
+                <div class="pipeline-node" data-layer="5">
+                    <div class="node-glow"></div>
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="node-content">
+                        <span class="node-label">Layer 5</span>
+                        <h3>Governance Engine</h3>
+                        <p>Policy enforcement, PII redaction, access control, data residency compliance, and full audit trail generation.</p>
+                        <div class="node-metrics">
+                            <span class="metric"><span class="metric-value">SOC2</span> compliant</span>
+                            <span class="metric"><span class="metric-value">0</span> violations</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-connector">
+                    <div class="connector-line"></div>
+                    <div class="connector-pulse"></div>
+                    <span class="connector-label">Governed Output</span>
+                </div>
+                <div class="pipeline-node" data-layer="6">
+                    <div class="node-glow"></div>
+                    <div class="node-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/></svg>
+                    </div>
+                    <div class="node-content">
+                        <span class="node-label">Layer 6</span>
+                        <h3>Execution Systems</h3>
+                        <p>Final context delivery to target agents with exactly-once semantics, delivery confirmation, and automatic retry.</p>
+                        <div class="node-metrics">
+                            <span class="metric"><span class="metric-value">99.99%</span> delivery</span>
+                            <span class="metric"><span class="metric-value">&lt;25ms</span> e2e</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="details-section">
+        <div class="container">
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <div class="detail-status active"></div>
+                        <span>Routing Engine</span>
+                    </div>
+                    <div class="detail-body">
+                        <div class="detail-metric">
+                            <span class="dm-label">Strategy</span>
+                            <span class="dm-value">Deterministic</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Active Rules</span>
+                            <span class="dm-value">247</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Cache Hit Rate</span>
+                            <span class="dm-value">94.2%</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Avg Latency</span>
+                            <span class="dm-value">6.8ms</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <div class="detail-status active"></div>
+                        <span>Semantic Validator</span>
+                    </div>
+                    <div class="detail-body">
+                        <div class="detail-metric">
+                            <span class="dm-label">Model</span>
+                            <span class="dm-value">contextship-embed-v3</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Dimensions</span>
+                            <span class="dm-value">1536</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Coherence Threshold</span>
+                            <span class="dm-value">0.85</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Drift Detection</span>
+                            <span class="dm-value">Enabled</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <div class="detail-status active"></div>
+                        <span>Memory System</span>
+                    </div>
+                    <div class="detail-body">
+                        <div class="detail-metric">
+                            <span class="dm-label">Working Memory</span>
+                            <span class="dm-value">128MB / agent</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Episodic Store</span>
+                            <span class="dm-value">2.4TB total</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Vector Index</span>
+                            <span class="dm-value">847M embeddings</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Sync Mode</span>
+                            <span class="dm-value">Cross-agent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-header">
+                        <div class="detail-status active"></div>
+                        <span>Governance</span>
+                    </div>
+                    <div class="detail-body">
+                        <div class="detail-metric">
+                            <span class="dm-label">Active Policies</span>
+                            <span class="dm-value">34</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Compliance</span>
+                            <span class="dm-value">SOC2, GDPR, HIPAA</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">Audit Retention</span>
+                            <span class="dm-value">90 days</span>
+                        </div>
+                        <div class="detail-metric">
+                            <span class="dm-label">PII Redactions (24h)</span>
+                            <span class="dm-value">12,847</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trace-section">
+        <div class="container">
+            <h2>Live Trace Visualization</h2>
+            <p class="section-desc">Watch context flow through the system in real-time. Each trace represents a complete context routing operation.</p>
+            <div class="trace-window">
+                <div class="trace-header">
+                    <div class="trace-dots"><span></span><span></span><span></span></div>
+                    <span class="trace-title">contextship trace --live</span>
+                </div>
+                <div class="trace-body" id="traceBody">
+                    <div class="trace-line"><span class="t-time">08:42:01.234</span> <span class="t-event">ROUTE</span> <span class="t-agent">finance-ai</span> <span class="t-detail">→ market-data, risk-models | 7ms | score: 0.94</span></div>
+                    <div class="trace-line"><span class="t-time">08:42:01.241</span> <span class="t-event">VALIDATE</span> <span class="t-agent">semantic-layer</span> <span class="t-detail">coherence: 0.97 | drift: none | fragments: 12</span></div>
+                    <div class="trace-line"><span class="t-time">08:42:01.249</span> <span class="t-event">MEMORY</span> <span class="t-agent">memory-engine</span> <span class="t-detail">recall: 5 memories | tier: semantic | merge: 2 conflicts</span></div>
+                    <div class="trace-line"><span class="t-time">08:42:01.256</span> <span class="t-event">GOVERN</span> <span class="t-agent">policy-engine</span> <span class="t-detail">4 policies passed | redactions: 1 | audit: logged</span></div>
+                    <div class="trace-line"><span class="t-time">08:42:01.258</span> <span class="t-event">DELIVER</span> <span class="t-agent">finance-ai</span> <span class="t-detail">✓ delivered | 3847 tokens | e2e: 24ms</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-block">
+                <h2>Start Building with ContextShip</h2>
+                <p>Deploy your first context pipeline in under 5 minutes.</p>
+                <div class="cta-buttons">
+                    <a href="docs.html#quickstart" class="btn-primary">Read the Docs</a>
+                    <a href="ecosystem.html" class="btn-secondary">View Open Source</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-brand">ContextShip</span>
+                <span class="footer-copy">&copy; 2025 ContextShip. Context infrastructure for intelligent systems.</span>
+                <div class="footer-links">
+                    <a href="docs.html">Docs</a>
+                    <a href="ecosystem.html">GitHub</a>
+                    <a href="why-context.html">Blog</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a2e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6b6b80;
+    --accent-purple: #8b5cf6;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-green: #10b981;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 1rem 2rem;
+    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 15, 0.85);
+    border-bottom: 1px solid var(--glass-border);
+}
+.nav-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo {
+    font-size: 1.15rem; font-weight: 700; text-decoration: none;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-cta {
+    padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    border: none; border-radius: 8px; color: white; font-size: 0.85rem; font-weight: 500;
+    cursor: pointer; text-decoration: none; transition: all 0.3s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 25px rgba(139,92,246,0.4); }
+
+/* Hero */
+.hero-arch { padding: 10rem 0 5rem; text-align: center; }
+.badge {
+    display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--accent-purple); padding: 0.35rem 0.9rem;
+    background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2);
+    border-radius: 100px; margin-bottom: 1.5rem;
+}
+.hero-arch h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #60a5fa 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.lead { font-size: 1.15rem; color: var(--text-secondary); max-width: 640px; margin: 0 auto; line-height: 1.7; }
+
+/* Pipeline */
+.pipeline-section { padding: 4rem 0 6rem; }
+.pipeline-header { text-align: center; margin-bottom: 4rem; }
+.pipeline-header h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+.pipeline-header p { color: var(--text-secondary); font-size: 1rem; }
+.pipeline { position: relative; max-width: 700px; margin: 0 auto; }
+.pipeline-node {
+    position: relative; display: flex; gap: 1.5rem; align-items: flex-start;
+    padding: 1.75rem; background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-radius: 16px; transition: all 0.4s; overflow: hidden;
+}
+.pipeline-node:hover { border-color: rgba(139,92,246,0.4); transform: translateX(4px); }
+.pipeline-node:hover .node-glow { opacity: 1; }
+.node-glow {
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(139,92,246,0.06) 0%, transparent 60%);
+    opacity: 0; transition: opacity 0.4s;
+}
+.node-icon {
+    width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 12px;
+    position: relative; z-index: 1;
+}
+.node-icon svg { width: 22px; height: 22px; color: var(--accent-purple); }
+.node-content { position: relative; z-index: 1; }
+.node-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-purple); }
+.node-content h3 { font-size: 1.2rem; font-weight: 700; margin: 0.25rem 0 0.5rem; letter-spacing: -0.01em; }
+.node-content p { color: var(--text-secondary); font-size: 0.875rem; line-height: 1.7; }
+.node-metrics { display: flex; gap: 1.5rem; margin-top: 0.75rem; }
+.metric { font-size: 0.75rem; color: var(--text-muted); }
+.metric-value { color: var(--accent-cyan); font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+.pipeline-connector {
+    display: flex; flex-direction: column; align-items: center; padding: 0.75rem 0; position: relative;
+}
+.connector-line { width: 2px; height: 30px; background: linear-gradient(180deg, var(--accent-purple), var(--accent-blue)); opacity: 0.4; }
+.connector-pulse {
+    width: 8px; height: 8px; border-radius: 50%; background: var(--accent-purple);
+    animation: pulse 2s ease-in-out infinite; margin: 4px 0;
+}
+.connector-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+@keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.5); } }
+</style>
+
+
+<style>
+/* Details Grid */
+.details-section { padding: 4rem 0; }
+.details-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.detail-card {
+    background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px;
+    overflow: hidden; transition: all 0.3s;
+}
+.detail-card:hover { border-color: rgba(139,92,246,0.3); }
+.detail-header {
+    display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--glass-border); font-size: 0.85rem; font-weight: 600;
+}
+.detail-status { width: 8px; height: 8px; border-radius: 50%; }
+.detail-status.active { background: var(--accent-green); box-shadow: 0 0 8px rgba(16,185,129,0.5); animation: pulse 3s infinite; }
+.detail-body { padding: 1rem 1.25rem; }
+.detail-metric { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.detail-metric:last-child { border-bottom: none; }
+.dm-label { font-size: 0.8rem; color: var(--text-muted); }
+.dm-value { font-size: 0.8rem; color: var(--text-primary); font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+
+/* Trace Section */
+.trace-section { padding: 5rem 0; }
+.trace-section h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; text-align: center; }
+.section-desc { color: var(--text-secondary); text-align: center; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.trace-window {
+    background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); border-radius: 14px;
+    overflow: hidden; max-width: 900px; margin: 0 auto;
+}
+.trace-header {
+    display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1.25rem;
+    background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--glass-border);
+}
+.trace-dots { display: flex; gap: 6px; }
+.trace-dots span { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.1); }
+.trace-dots span:first-child { background: #ff5f57; }
+.trace-dots span:nth-child(2) { background: #ffbd2e; }
+.trace-dots span:nth-child(3) { background: #28ca42; }
+.trace-title { font-size: 0.75rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+.trace-body { padding: 1.25rem; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; line-height: 2; }
+.trace-line { opacity: 0; animation: traceFadeIn 0.5s forwards; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trace-line:nth-child(1) { animation-delay: 0.5s; }
+.trace-line:nth-child(2) { animation-delay: 1.2s; }
+.trace-line:nth-child(3) { animation-delay: 1.9s; }
+.trace-line:nth-child(4) { animation-delay: 2.6s; }
+.trace-line:nth-child(5) { animation-delay: 3.3s; }
+@keyframes traceFadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.t-time { color: var(--text-muted); }
+.t-event { color: var(--accent-purple); font-weight: 600; margin: 0 0.5rem; }
+.t-agent { color: var(--accent-cyan); }
+.t-detail { color: var(--text-secondary); }
+
+/* CTA */
+.cta-section { padding: 5rem 0; }
+.cta-block {
+    text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(59,130,246,0.05));
+    border: 1px solid var(--glass-border); border-radius: 20px; position: relative; overflow: hidden;
+}
+.cta-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-blue), transparent); }
+.cta-block h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.cta-block p { color: var(--text-secondary); margin-bottom: 2rem; }
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+.btn-primary {
+    padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    border: none; border-radius: 10px; color: white; font-weight: 600; text-decoration: none;
+    transition: all 0.3s; font-size: 0.9rem;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(139,92,246,0.4); }
+.btn-secondary {
+    padding: 0.75rem 1.75rem; background: var(--glass-bg); border: 1px solid var(--glass-border);
+    border-radius: 10px; color: var(--text-primary); font-weight: 500; text-decoration: none;
+    transition: all 0.3s; font-size: 0.9rem;
+}
+.btn-secondary:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-2px); }
+
+/* Footer */
+footer { padding: 3rem 0; border-top: 1px solid var(--glass-border); }
+.footer-content { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-brand {
+    font-weight: 700; background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text-primary); }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .details-grid { grid-template-columns: 1fr; }
+    .pipeline-node { flex-direction: column; gap: 1rem; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
+
+
+<script>
+// Animate pipeline nodes on scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.pipeline-node').forEach((node, i) => {
+    node.style.opacity = '0';
+    node.style.transform = 'translateY(20px)';
+    node.style.transition = `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.15}s`;
+    observer.observe(node);
+});
+
+document.querySelectorAll('.detail-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = `all 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.1}s`;
+    observer.observe(card);
+});
+
+// Live trace animation - cycle new events
+const traceEvents = [
+    { time: '08:42:02.112', event: 'ROUTE', agent: 'support-bot', detail: '→ knowledge-base, tickets | 5ms | score: 0.91' },
+    { time: '08:42:02.117', event: 'VALIDATE', agent: 'semantic-layer', detail: 'coherence: 0.93 | drift: none | fragments: 8' },
+    { time: '08:42:02.124', event: 'MEMORY', agent: 'memory-engine', detail: 'recall: 3 memories | tier: episodic | merge: 0 conflicts' },
+    { time: '08:42:02.131', event: 'GOVERN', agent: 'policy-engine', detail: '3 policies passed | redactions: 2 | audit: logged' },
+    { time: '08:42:02.133', event: 'DELIVER', agent: 'support-bot', detail: '✓ delivered | 2194 tokens | e2e: 21ms' },
+    { time: '08:42:03.447', event: 'ROUTE', agent: 'code-review-ai', detail: '→ codebase, git-history | 9ms | score: 0.88' },
+    { time: '08:42:03.456', event: 'VALIDATE', agent: 'semantic-layer', detail: 'coherence: 0.91 | drift: minor | fragments: 24' },
+    { time: '08:42:03.470', event: 'MEMORY', agent: 'memory-engine', detail: 'recall: 8 memories | tier: working | merge: 1 conflict' },
+    { time: '08:42:03.482', event: 'GOVERN', agent: 'policy-engine', detail: '5 policies passed | redactions: 0 | audit: logged' },
+    { time: '08:42:03.484', event: 'DELIVER', agent: 'code-review-ai', detail: '✓ delivered | 6241 tokens | e2e: 37ms' },
+];
+
+let traceIndex = 0;
+setInterval(() => {
+    const body = document.getElementById('traceBody');
+    const evt = traceEvents[traceIndex % traceEvents.length];
+    const line = document.createElement('div');
+    line.className = 'trace-line';
+    line.style.opacity = '1';
+    line.innerHTML = `<span class="t-time">${evt.time}</span> <span class="t-event">${evt.event}</span> <span class="t-agent">${evt.agent}</span> <span class="t-detail">${evt.detail}</span>`;
+    body.appendChild(line);
+    if (body.children.length > 12) body.removeChild(body.firstChild);
+    body.scrollTop = body.scrollHeight;
+    traceIndex++;
+}, 2500);
+</script>
+</body>
+</html>

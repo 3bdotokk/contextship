@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation — ContextShip</title>
+    <meta name="description" content="ContextShip documentation. Learn how to build with semantic context infrastructure for AI agents.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="docs-layout">
+    <aside class="docs-sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-logo">ContextShip</a>
+            <span class="sidebar-version">v2.4.0</span>
+        </div>
+        <nav class="sidebar-nav">
+            <div class="nav-group">
+                <div class="nav-group-title">Getting Started</div>
+                <a href="#overview" class="nav-item active" data-section="overview">Overview</a>
+                <a href="#quickstart" class="nav-item" data-section="quickstart">Quickstart</a>
+                <a href="#installation" class="nav-item" data-section="installation">Installation</a>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-title">Core Concepts</div>
+                <a href="#architecture" class="nav-item" data-section="architecture">Architecture</a>
+                <a href="#routing" class="nav-item" data-section="routing">Context Routing</a>
+                <a href="#semantic-memory" class="nav-item" data-section="semantic-memory">Semantic Memory</a>
+                <a href="#governance" class="nav-item" data-section="governance">Governance</a>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-title">Integration</div>
+                <a href="#mcp" class="nav-item" data-section="mcp">MCP Protocol</a>
+                <a href="#sdk" class="nav-item" data-section="sdk">SDK Reference</a>
+                <a href="#api" class="nav-item" data-section="api">API Reference</a>
+                <a href="#agents" class="nav-item" data-section="agents">Agent Systems</a>
+            </div>
+            <div class="nav-group">
+                <div class="nav-group-title">Advanced</div>
+                <a href="#orchestration" class="nav-item" data-section="orchestration">Orchestration</a>
+                <a href="#observability" class="nav-item" data-section="observability">Observability</a>
+                <a href="#deployment" class="nav-item" data-section="deployment">Deployment</a>
+            </div>
+        </nav>
+    </aside>
+    <main class="docs-main">
+        <header class="docs-topbar">
+            <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+            <div class="topbar-breadcrumb">Docs</div>
+            <div class="topbar-actions">
+                <a href="https://github.com/contextship" class="topbar-link" target="_blank">GitHub</a>
+                <a href="index.html" class="topbar-link">Home</a>
+            </div>
+        </header>
+        <div class="docs-content">
+
+
+            <!-- Overview Section -->
+            <section class="doc-section active" id="overview">
+                <div class="doc-header">
+                    <span class="doc-badge">Getting Started</span>
+                    <h1>ContextShip Documentation</h1>
+                    <p class="doc-lead">Build production-grade semantic context infrastructure for AI agents. Route context deterministically, orchestrate memory, and govern AI systems at enterprise scale.</p>
+                </div>
+                <div class="doc-card-grid">
+                    <a href="#quickstart" class="doc-card" data-nav="quickstart">
+                        <div class="doc-card-icon">⚡</div>
+                        <h3>Quickstart</h3>
+                        <p>Get up and running in under 5 minutes with your first context pipeline.</p>
+                    </a>
+                    <a href="#architecture" class="doc-card" data-nav="architecture">
+                        <div class="doc-card-icon">◈</div>
+                        <h3>Architecture</h3>
+                        <p>Understand the system design behind deterministic context routing.</p>
+                    </a>
+                    <a href="#sdk" class="doc-card" data-nav="sdk">
+                        <div class="doc-card-icon">⟁</div>
+                        <h3>SDK Reference</h3>
+                        <p>Type-safe libraries for TypeScript, Python, Go, and Rust.</p>
+                    </a>
+                    <a href="#api" class="doc-card" data-nav="api">
+                        <div class="doc-card-icon">⧖</div>
+                        <h3>API Reference</h3>
+                        <p>RESTful endpoints for context routing, memory sync, and agent state.</p>
+                    </a>
+                </div>
+                <div class="doc-block">
+                    <h2>What is ContextShip?</h2>
+                    <p>ContextShip is the infrastructure layer between your AI agents and the knowledge they need. It provides deterministic context routing, semantic memory orchestration, and enterprise governance for multi-agent systems.</p>
+                    <p>Modern AI agents fail not because of model limitations, but because of <strong>context fragmentation</strong>. ContextShip solves this by engineering reliable context pipelines—ensuring every agent receives precisely the right information at the right time.</p>
+                    <div class="doc-callout">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-content">
+                            <strong>Key Insight:</strong> Context is the new infrastructure. Just as databases solved data persistence and message queues solved async communication, ContextShip solves context delivery for intelligent systems.
+                        </div>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Core Capabilities</h2>
+                    <table class="doc-table">
+                        <thead><tr><th>Capability</th><th>Description</th><th>Latency</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>Context Routing</code></td><td>Deterministic routing of semantic context to target agents</td><td>&lt;10ms p99</td></tr>
+                            <tr><td><code>Memory Sync</code></td><td>Cross-agent memory synchronization with conflict resolution</td><td>&lt;25ms p99</td></tr>
+                            <tr><td><code>Semantic Validation</code></td><td>Real-time validation of context integrity and coherence</td><td>&lt;5ms p99</td></tr>
+                            <tr><td><code>Governance Engine</code></td><td>Policy enforcement, audit trails, and compliance checks</td><td>&lt;15ms p99</td></tr>
+                            <tr><td><code>Agent Orchestration</code></td><td>Multi-agent coordination with distributed consensus</td><td>&lt;50ms p99</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+            <!-- Quickstart Section -->
+            <section class="doc-section" id="quickstart">
+                <div class="doc-header">
+                    <span class="doc-badge">Getting Started</span>
+                    <h1>Quickstart</h1>
+                    <p class="doc-lead">Get your first context pipeline running in under 5 minutes.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Prerequisites</h2>
+                    <ul>
+                        <li>Node.js 18+ or Python 3.10+</li>
+                        <li>A ContextShip API key (<a href="#api">get one here</a>)</li>
+                        <li>An AI agent or LLM application to connect</li>
+                    </ul>
+                </div>
+                <div class="doc-block">
+                    <h2>1. Install the SDK</h2>
+                    <div class="code-tabs">
+                        <div class="code-tab active" data-lang="typescript">TypeScript</div>
+                        <div class="code-tab" data-lang="python">Python</div>
+                        <div class="code-tab" data-lang="go">Go</div>
+                    </div>
+                    <div class="code-block" data-lang="typescript">
+                        <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment"># Install the ContextShip SDK</span>
+npm install @contextship/sdk @contextship/router
+
+<span class="token-comment"># Or with yarn</span>
+yarn add @contextship/sdk @contextship/router</code></pre>
+                    </div>
+                    <div class="code-block hidden" data-lang="python">
+                        <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment"># Install the ContextShip Python SDK</span>
+pip install contextship
+
+<span class="token-comment"># Or with poetry</span>
+poetry add contextship</code></pre>
+                    </div>
+                    <div class="code-block hidden" data-lang="go">
+                        <div class="code-header"><span>Terminal</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment">// Install the Go module</span>
+go get github.com/contextship/contextship-go@latest</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>2. Initialize the Client</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>src/context.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { ContextShip } <span class="token-keyword">from</span> <span class="token-string">'@contextship/sdk'</span>;
+<span class="token-keyword">import</span> { SemanticRouter } <span class="token-keyword">from</span> <span class="token-string">'@contextship/router'</span>;
+
+<span class="token-keyword">const</span> client = <span class="token-keyword">new</span> <span class="token-function">ContextShip</span>({
+  apiKey: process.env.<span class="token-property">CONTEXTSHIP_API_KEY</span>,
+  region: <span class="token-string">'us-east-1'</span>,
+  semanticLayer: {
+    validation: <span class="token-keyword">true</span>,
+    deduplication: <span class="token-keyword">true</span>,
+    compression: <span class="token-string">'adaptive'</span>
+  }
+});
+
+<span class="token-keyword">const</span> router = <span class="token-keyword">new</span> <span class="token-function">SemanticRouter</span>(client, {
+  strategy: <span class="token-string">'deterministic'</span>,
+  fallback: <span class="token-string">'nearest-semantic'</span>,
+  maxLatency: <span class="token-string">'10ms'</span>
+});</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>3. Route Your First Context</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>src/pipeline.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment">// Define a context pipeline</span>
+<span class="token-keyword">const</span> pipeline = client.<span class="token-function">createPipeline</span>({
+  name: <span class="token-string">'finance-agent-context'</span>,
+  sources: [<span class="token-string">'market-data'</span>, <span class="token-string">'user-portfolio'</span>, <span class="token-string">'risk-models'</span>],
+  transforms: [
+    { type: <span class="token-string">'semantic-filter'</span>, threshold: <span class="token-number">0.85</span> },
+    { type: <span class="token-string">'temporal-window'</span>, range: <span class="token-string">'24h'</span> },
+    { type: <span class="token-string">'dedup'</span>, strategy: <span class="token-string">'content-hash'</span> }
+  ]
+});
+
+<span class="token-comment">// Route context to your agent</span>
+<span class="token-keyword">const</span> result = <span class="token-keyword">await</span> router.<span class="token-function">route</span>({
+  pipeline,
+  target: <span class="token-string">'finance-ai-agent'</span>,
+  context: {
+    query: <span class="token-string">'Analyze portfolio risk for Q4'</span>,
+    constraints: { maxTokens: <span class="token-number">4096</span>, freshness: <span class="token-string">'1h'</span> }
+  }
+});
+
+console.<span class="token-function">log</span>(result.routed);    <span class="token-comment">// true</span>
+console.<span class="token-function">log</span>(result.latency);   <span class="token-comment">// '7ms'</span>
+console.<span class="token-function">log</span>(result.semantic);   <span class="token-comment">// { score: 0.94, validated: true }</span></code></pre>
+                    </div>
+                    <div class="doc-callout success">
+                        <div class="callout-icon">✓</div>
+                        <div class="callout-content">
+                            <strong>That's it!</strong> Your agent now receives deterministically routed, semantically validated context. The router automatically handles deduplication, caching, and fallback strategies.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Installation Section -->
+            <section class="doc-section" id="installation">
+                <div class="doc-header">
+                    <span class="doc-badge">Getting Started</span>
+                    <h1>Installation</h1>
+                    <p class="doc-lead">Install ContextShip in your preferred language and environment.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>System Requirements</h2>
+                    <table class="doc-table">
+                        <thead><tr><th>Runtime</th><th>Minimum Version</th><th>Recommended</th></tr></thead>
+                        <tbody>
+                            <tr><td>Node.js</td><td>18.0+</td><td>20.x LTS</td></tr>
+                            <tr><td>Python</td><td>3.10+</td><td>3.12+</td></tr>
+                            <tr><td>Go</td><td>1.21+</td><td>1.22+</td></tr>
+                            <tr><td>Rust</td><td>1.70+</td><td>1.75+</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="doc-block">
+                    <h2>Package Installation</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>TypeScript / JavaScript</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment"># Core SDK</span>
+npm install @contextship/sdk
+
+<span class="token-comment"># Context Router</span>
+npm install @contextship/router
+
+<span class="token-comment"># Memory Engine</span>
+npm install @contextship/memory
+
+<span class="token-comment"># Governance (Enterprise)</span>
+npm install @contextship/governance
+
+<span class="token-comment"># Full stack</span>
+npm install @contextship/sdk @contextship/router @contextship/memory @contextship/governance</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Python</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment"># Core SDK with all components</span>
+pip install contextship[all]
+
+<span class="token-comment"># Individual components</span>
+pip install contextship-router
+pip install contextship-memory
+pip install contextship-governance</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Environment Configuration</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>.env</span><button class="copy-btn">Copy</button></div>
+                        <pre><code>CONTEXTSHIP_API_KEY=cship_live_sk_...
+CONTEXTSHIP_REGION=us-east-1
+CONTEXTSHIP_SEMANTIC_LAYER=enabled
+CONTEXTSHIP_GOVERNANCE_MODE=strict
+CONTEXTSHIP_LOG_LEVEL=info</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Section -->
+            <section class="doc-section" id="architecture">
+                <div class="doc-header">
+                    <span class="doc-badge">Core Concepts</span>
+                    <h1>Architecture</h1>
+                    <p class="doc-lead">Understanding the layered architecture of ContextShip's semantic context infrastructure.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>System Overview</h2>
+                    <p>ContextShip operates as a multi-layered system designed to handle the complete lifecycle of context in AI agent systems. Each layer is independently scalable and observable.</p>
+                    <div class="arch-diagram">
+                        <div class="arch-layer">
+                            <div class="arch-layer-label">L1</div>
+                            <div class="arch-layer-content">
+                                <strong>Agent Interface Layer</strong>
+                                <span>SDK, API Gateway, Protocol Handlers</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-layer-label">L2</div>
+                            <div class="arch-layer-content">
+                                <strong>Context Router</strong>
+                                <span>Deterministic Routing, Semantic Matching, Load Balancing</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-layer-label">L3</div>
+                            <div class="arch-layer-content">
+                                <strong>Semantic Layer</strong>
+                                <span>Validation, Deduplication, Compression, Coherence</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-layer-label">L4</div>
+                            <div class="arch-layer-content">
+                                <strong>Memory Orchestration</strong>
+                                <span>Vector Store, Temporal Index, Cross-Agent Sync</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-layer-label">L5</div>
+                            <div class="arch-layer-content">
+                                <strong>Governance Engine</strong>
+                                <span>Policy Enforcement, Audit, Compliance, Access Control</span>
+                            </div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-layer">
+                            <div class="arch-layer-label">L6</div>
+                            <div class="arch-layer-content">
+                                <strong>Execution Systems</strong>
+                                <span>Agent Runtime, Pipeline Executor, State Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Data Flow</h2>
+                    <p>Context flows through the system in a deterministic pipeline. Each stage applies transformations, validations, and routing decisions before passing to the next layer.</p>
+                    <div class="code-block">
+                        <div class="code-header"><span>Architecture Flow</span></div>
+                        <pre><code><span class="token-comment">// Simplified context lifecycle</span>
+Agent Request → API Gateway → Authentication
+    → Context Router (deterministic path selection)
+    → Semantic Layer (validate + transform)
+    → Memory Orchestration (retrieve + merge)
+    → Governance Engine (policy check)
+    → Execution (deliver to target agent)
+    → Observability (trace + metrics)</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Design Principles</h2>
+                    <ul>
+                        <li><strong>Deterministic by default:</strong> Same input always produces same routing decisions</li>
+                        <li><strong>Semantic-first:</strong> All operations understand meaning, not just bytes</li>
+                        <li><strong>Observable at every layer:</strong> Full tracing from ingestion to delivery</li>
+                        <li><strong>Governance-native:</strong> Policies enforced at the infrastructure level</li>
+                        <li><strong>Horizontally scalable:</strong> Each layer scales independently</li>
+                    </ul>
+                </div>
+            </section>
+
+
+            <!-- Routing Section -->
+            <section class="doc-section" id="routing">
+                <div class="doc-header">
+                    <span class="doc-badge">Core Concepts</span>
+                    <h1>Context Routing</h1>
+                    <p class="doc-lead">Deterministic, semantic-aware routing of context to AI agents.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>How Routing Works</h2>
+                    <p>The Context Router is the core decision engine that determines which context reaches which agent, when, and in what form. Unlike simple retrieval systems, ContextShip routes context based on semantic understanding, agent state, and governance policies.</p>
+                    <div class="code-block">
+                        <div class="code-header"><span>routing-config.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { Router, Strategy } <span class="token-keyword">from</span> <span class="token-string">'@contextship/router'</span>;
+
+<span class="token-keyword">const</span> router = <span class="token-keyword">new</span> <span class="token-function">Router</span>({
+  strategy: Strategy.<span class="token-property">DETERMINISTIC</span>,
+  
+  <span class="token-comment">// Routing rules</span>
+  rules: [
+    {
+      match: { agent: <span class="token-string">'finance-*'</span>, intent: <span class="token-string">'analysis'</span> },
+      sources: [<span class="token-string">'market-data'</span>, <span class="token-string">'risk-models'</span>],
+      transform: <span class="token-string">'temporal-filter'</span>,
+      governance: <span class="token-string">'pii-redact'</span>
+    },
+    {
+      match: { agent: <span class="token-string">'support-*'</span>, intent: <span class="token-string">'resolution'</span> },
+      sources: [<span class="token-string">'knowledge-base'</span>, <span class="token-string">'ticket-history'</span>],
+      transform: <span class="token-string">'relevance-rank'</span>,
+      governance: <span class="token-string">'customer-data-policy'</span>
+    }
+  ],
+
+  <span class="token-comment">// Fallback when no rule matches</span>
+  fallback: {
+    strategy: <span class="token-string">'nearest-semantic'</span>,
+    maxResults: <span class="token-number">10</span>,
+    minScore: <span class="token-number">0.75</span>
+  }
+});</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Routing Strategies</h2>
+                    <table class="doc-table">
+                        <thead><tr><th>Strategy</th><th>Use Case</th><th>Consistency</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>deterministic</code></td><td>Same context always routes to same target</td><td>Strong</td></tr>
+                            <tr><td><code>semantic-nearest</code></td><td>Route based on embedding similarity</td><td>Eventual</td></tr>
+                            <tr><td><code>load-balanced</code></td><td>Distribute across multiple targets</td><td>Eventual</td></tr>
+                            <tr><td><code>priority-queue</code></td><td>Route critical context first</td><td>Strong</td></tr>
+                            <tr><td><code>broadcast</code></td><td>Send to all matching agents</td><td>Strong</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Semantic Memory Section -->
+            <section class="doc-section" id="semantic-memory">
+                <div class="doc-header">
+                    <span class="doc-badge">Core Concepts</span>
+                    <h1>Semantic Memory</h1>
+                    <p class="doc-lead">Hierarchical memory architecture for persistent, cross-agent state.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Memory Architecture</h2>
+                    <p>ContextShip implements a three-tier memory hierarchy inspired by human cognitive systems:</p>
+                    <ul>
+                        <li><strong>Working Memory:</strong> Short-lived, high-bandwidth context for active tasks (TTL: minutes)</li>
+                        <li><strong>Episodic Memory:</strong> Task-specific memories with temporal indexing (TTL: hours-days)</li>
+                        <li><strong>Semantic Memory:</strong> Long-term knowledge crystallized from agent interactions (TTL: persistent)</li>
+                    </ul>
+                    <div class="code-block">
+                        <div class="code-header"><span>memory-engine.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { MemoryEngine, Tier } <span class="token-keyword">from</span> <span class="token-string">'@contextship/memory'</span>;
+
+<span class="token-keyword">const</span> memory = <span class="token-keyword">new</span> <span class="token-function">MemoryEngine</span>({
+  tiers: {
+    working: { capacity: <span class="token-string">'128MB'</span>, ttl: <span class="token-string">'15m'</span> },
+    episodic: { capacity: <span class="token-string">'2GB'</span>, ttl: <span class="token-string">'7d'</span> },
+    semantic: { capacity: <span class="token-string">'unlimited'</span>, ttl: <span class="token-string">'persistent'</span> }
+  },
+  vectorIndex: {
+    dimensions: <span class="token-number">1536</span>,
+    metric: <span class="token-string">'cosine'</span>,
+    quantization: <span class="token-string">'int8'</span>
+  },
+  sync: {
+    mode: <span class="token-string">'cross-agent'</span>,
+    conflictResolution: <span class="token-string">'last-write-wins'</span>,
+    consistency: <span class="token-string">'eventual'</span>
+  }
+});
+
+<span class="token-comment">// Store a memory</span>
+<span class="token-keyword">await</span> memory.<span class="token-function">store</span>({
+  content: <span class="token-string">'User prefers conservative investment strategies'</span>,
+  tier: Tier.<span class="token-property">SEMANTIC</span>,
+  metadata: { agent: <span class="token-string">'finance-ai'</span>, confidence: <span class="token-number">0.92</span> }
+});
+
+<span class="token-comment">// Retrieve relevant memories</span>
+<span class="token-keyword">const</span> memories = <span class="token-keyword">await</span> memory.<span class="token-function">recall</span>({
+  query: <span class="token-string">'What are the user investment preferences?'</span>,
+  topK: <span class="token-number">5</span>,
+  minScore: <span class="token-number">0.8</span>,
+  tiers: [Tier.<span class="token-property">SEMANTIC</span>, Tier.<span class="token-property">EPISODIC</span>]
+});</code></pre>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Governance Section -->
+            <section class="doc-section" id="governance">
+                <div class="doc-header">
+                    <span class="doc-badge">Core Concepts</span>
+                    <h1>Governance</h1>
+                    <p class="doc-lead">Enterprise-grade policy enforcement, audit trails, and compliance for AI context systems.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Policy Engine</h2>
+                    <p>The Governance Engine enforces organizational policies at the infrastructure level. Every context operation passes through policy checkpoints before execution.</p>
+                    <div class="code-block">
+                        <div class="code-header"><span>governance.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { Governance, Policy } <span class="token-keyword">from</span> <span class="token-string">'@contextship/governance'</span>;
+
+<span class="token-keyword">const</span> governance = <span class="token-keyword">new</span> <span class="token-function">Governance</span>({
+  policies: [
+    Policy.<span class="token-function">piiRedaction</span>({ fields: [<span class="token-string">'ssn'</span>, <span class="token-string">'email'</span>, <span class="token-string">'phone'</span>] }),
+    Policy.<span class="token-function">dataResidency</span>({ region: <span class="token-string">'eu-west-1'</span> }),
+    Policy.<span class="token-function">accessControl</span>({ rbac: <span class="token-keyword">true</span>, abac: <span class="token-keyword">true</span> }),
+    Policy.<span class="token-function">rateLimiting</span>({ maxRequests: <span class="token-number">10000</span>, window: <span class="token-string">'1m'</span> }),
+    Policy.<span class="token-function">contentFiltering</span>({ 
+      blocklist: [<span class="token-string">'competitor-data'</span>],
+      sensitivity: <span class="token-string">'high'</span>
+    })
+  ],
+  audit: {
+    enabled: <span class="token-keyword">true</span>,
+    retention: <span class="token-string">'90d'</span>,
+    destination: <span class="token-string">'s3://audit-logs/contextship/'</span>
+  },
+  compliance: [<span class="token-string">'SOC2'</span>, <span class="token-string">'GDPR'</span>, <span class="token-string">'HIPAA'</span>]
+});</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MCP Section -->
+            <section class="doc-section" id="mcp">
+                <div class="doc-header">
+                    <span class="doc-badge">Integration</span>
+                    <h1>MCP Protocol</h1>
+                    <p class="doc-lead">Model Context Protocol integration for standardized agent-context communication.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>MCP Server Implementation</h2>
+                    <p>ContextShip natively implements the Model Context Protocol (MCP), enabling any MCP-compatible client to leverage the full context infrastructure.</p>
+                    <div class="code-block">
+                        <div class="code-header"><span>mcp-server.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { MCPServer } <span class="token-keyword">from</span> <span class="token-string">'@contextship/mcp'</span>;
+
+<span class="token-keyword">const</span> server = <span class="token-keyword">new</span> <span class="token-function">MCPServer</span>({
+  name: <span class="token-string">'contextship-mcp'</span>,
+  version: <span class="token-string">'2.4.0'</span>,
+  capabilities: {
+    tools: <span class="token-keyword">true</span>,
+    resources: <span class="token-keyword">true</span>,
+    prompts: <span class="token-keyword">true</span>
+  }
+});
+
+<span class="token-comment">// Expose context routing as MCP tool</span>
+server.<span class="token-function">addTool</span>({
+  name: <span class="token-string">'route_context'</span>,
+  description: <span class="token-string">'Route semantic context to target agents'</span>,
+  inputSchema: {
+    type: <span class="token-string">'object'</span>,
+    properties: {
+      query: { type: <span class="token-string">'string'</span> },
+      target: { type: <span class="token-string">'string'</span> },
+      constraints: { type: <span class="token-string">'object'</span> }
+    }
+  },
+  handler: <span class="token-keyword">async</span> (input) => {
+    <span class="token-keyword">return await</span> router.<span class="token-function">route</span>(input);
+  }
+});
+
+<span class="token-comment">// Expose memories as MCP resources</span>
+server.<span class="token-function">addResource</span>({
+  uri: <span class="token-string">'contextship://memory/{agentId}'</span>,
+  handler: <span class="token-keyword">async</span> (uri) => {
+    <span class="token-keyword">return await</span> memory.<span class="token-function">getAgentMemories</span>(uri.params.agentId);
+  }
+});
+
+server.<span class="token-function">listen</span>({ transport: <span class="token-string">'stdio'</span> });</code></pre>
+                    </div>
+                    <div class="doc-callout">
+                        <div class="callout-icon">💡</div>
+                        <div class="callout-content">
+                            <strong>MCP Compatibility:</strong> ContextShip works with Claude Desktop, Cursor, Windsurf, and any MCP-compatible client out of the box.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SDK Section -->
+            <section class="doc-section" id="sdk">
+                <div class="doc-header">
+                    <span class="doc-badge">Integration</span>
+                    <h1>SDK Reference</h1>
+                    <p class="doc-lead">Type-safe SDKs for TypeScript, Python, Go, and Rust.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Client Initialization</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>TypeScript</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { ContextShip, Pipeline, Agent } <span class="token-keyword">from</span> <span class="token-string">'@contextship/sdk'</span>;
+
+<span class="token-comment">// Initialize with full configuration</span>
+<span class="token-keyword">const</span> cs = <span class="token-keyword">new</span> <span class="token-function">ContextShip</span>({
+  apiKey: process.env.<span class="token-property">CONTEXTSHIP_API_KEY</span>,
+  region: <span class="token-string">'us-east-1'</span>,
+  
+  <span class="token-comment">// Connection pooling</span>
+  pool: { min: <span class="token-number">5</span>, max: <span class="token-number">50</span>, idle: <span class="token-string">'30s'</span> },
+  
+  <span class="token-comment">// Retry configuration</span>
+  retry: { attempts: <span class="token-number">3</span>, backoff: <span class="token-string">'exponential'</span> },
+  
+  <span class="token-comment">// Observability</span>
+  telemetry: {
+    traces: <span class="token-keyword">true</span>,
+    metrics: <span class="token-keyword">true</span>,
+    exporter: <span class="token-string">'otlp'</span>
+  }
+});</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Core Methods</h2>
+                    <table class="doc-table">
+                        <thead><tr><th>Method</th><th>Description</th><th>Returns</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>cs.route()</code></td><td>Route context to target agent</td><td><code>RouteResult</code></td></tr>
+                            <tr><td><code>cs.store()</code></td><td>Store context in memory tier</td><td><code>StoreResult</code></td></tr>
+                            <tr><td><code>cs.recall()</code></td><td>Retrieve relevant memories</td><td><code>Memory[]</code></td></tr>
+                            <tr><td><code>cs.validate()</code></td><td>Validate semantic coherence</td><td><code>ValidationResult</code></td></tr>
+                            <tr><td><code>cs.sync()</code></td><td>Synchronize cross-agent state</td><td><code>SyncResult</code></td></tr>
+                            <tr><td><code>cs.govern()</code></td><td>Apply governance policies</td><td><code>GovernanceResult</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- API Section -->
+            <section class="doc-section" id="api">
+                <div class="doc-header">
+                    <span class="doc-badge">Integration</span>
+                    <h1>API Reference</h1>
+                    <p class="doc-lead">RESTful API endpoints for context routing, memory synchronization, and agent management.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Base URL</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>Production</span></div>
+                        <pre><code>https://api.contextship.com/v1</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>POST /v1/context/route</h2>
+                    <p>Route context to a target agent with semantic validation.</p>
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span>
+                        <span class="api-path">/v1/context/route</span>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Request</span><button class="copy-btn">Copy</button></div>
+                        <pre><code>{
+  <span class="token-property">"target"</span>: <span class="token-string">"finance-ai-agent"</span>,
+  <span class="token-property">"context"</span>: {
+    <span class="token-property">"query"</span>: <span class="token-string">"Analyze Q4 portfolio risk exposure"</span>,
+    <span class="token-property">"sources"</span>: [<span class="token-string">"market-data"</span>, <span class="token-string">"risk-models"</span>],
+    <span class="token-property">"constraints"</span>: {
+      <span class="token-property">"maxTokens"</span>: <span class="token-number">4096</span>,
+      <span class="token-property">"freshness"</span>: <span class="token-string">"1h"</span>,
+      <span class="token-property">"minRelevance"</span>: <span class="token-number">0.85</span>
+    }
+  },
+  <span class="token-property">"options"</span>: {
+    <span class="token-property">"strategy"</span>: <span class="token-string">"deterministic"</span>,
+    <span class="token-property">"governance"</span>: <span class="token-keyword">true</span>,
+    <span class="token-property">"trace"</span>: <span class="token-keyword">true</span>
+  }
+}</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Response — 200 OK</span></div>
+                        <pre><code>{
+  <span class="token-property">"id"</span>: <span class="token-string">"route_2xK9mP4vQ8nL"</span>,
+  <span class="token-property">"status"</span>: <span class="token-string">"routed"</span>,
+  <span class="token-property">"target"</span>: <span class="token-string">"finance-ai-agent"</span>,
+  <span class="token-property">"latency"</span>: <span class="token-string">"7ms"</span>,
+  <span class="token-property">"semantic"</span>: {
+    <span class="token-property">"score"</span>: <span class="token-number">0.94</span>,
+    <span class="token-property">"validated"</span>: <span class="token-keyword">true</span>,
+    <span class="token-property">"coherence"</span>: <span class="token-number">0.97</span>
+  },
+  <span class="token-property">"context"</span>: {
+    <span class="token-property">"chunks"</span>: <span class="token-number">12</span>,
+    <span class="token-property">"tokens"</span>: <span class="token-number">3847</span>,
+    <span class="token-property">"sources_matched"</span>: <span class="token-number">2</span>
+  },
+  <span class="token-property">"governance"</span>: {
+    <span class="token-property">"passed"</span>: <span class="token-keyword">true</span>,
+    <span class="token-property">"policies_checked"</span>: <span class="token-number">4</span>,
+    <span class="token-property">"redactions"</span>: <span class="token-number">0</span>
+  },
+  <span class="token-property">"trace_id"</span>: <span class="token-string">"tr_8fK2nM9pX4vQ"</span>
+}</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>POST /v1/memory/sync</h2>
+                    <p>Synchronize memory state across agents.</p>
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span>
+                        <span class="api-path">/v1/memory/sync</span>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Request</span><button class="copy-btn">Copy</button></div>
+                        <pre><code>{
+  <span class="token-property">"agents"</span>: [<span class="token-string">"finance-ai"</span>, <span class="token-string">"risk-analyzer"</span>, <span class="token-string">"portfolio-manager"</span>],
+  <span class="token-property">"scope"</span>: <span class="token-string">"shared-context"</span>,
+  <span class="token-property">"conflict_resolution"</span>: <span class="token-string">"vector-merge"</span>,
+  <span class="token-property">"consistency"</span>: <span class="token-string">"strong"</span>
+}</code></pre>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Response — 200 OK</span></div>
+                        <pre><code>{
+  <span class="token-property">"sync_id"</span>: <span class="token-string">"sync_4pL8mK2nQ9xV"</span>,
+  <span class="token-property">"status"</span>: <span class="token-string">"synchronized"</span>,
+  <span class="token-property">"agents_synced"</span>: <span class="token-number">3</span>,
+  <span class="token-property">"memories_merged"</span>: <span class="token-number">47</span>,
+  <span class="token-property">"conflicts_resolved"</span>: <span class="token-number">2</span>,
+  <span class="token-property">"latency"</span>: <span class="token-string">"23ms"</span>
+}</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>POST /v1/semantic/validate</h2>
+                    <p>Validate semantic coherence and integrity of context.</p>
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span>
+                        <span class="api-path">/v1/semantic/validate</span>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Response — 200 OK</span></div>
+                        <pre><code>{
+  <span class="token-property">"valid"</span>: <span class="token-keyword">true</span>,
+  <span class="token-property">"coherence_score"</span>: <span class="token-number">0.96</span>,
+  <span class="token-property">"drift_detected"</span>: <span class="token-keyword">false</span>,
+  <span class="token-property">"fragmentation_index"</span>: <span class="token-number">0.02</span>,
+  <span class="token-property">"recommendations"</span>: []
+}</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>GET /v1/agents/state</h2>
+                    <p>Get current state of all managed agents.</p>
+                    <div class="api-endpoint">
+                        <span class="api-method get">GET</span>
+                        <span class="api-path">/v1/agents/state</span>
+                    </div>
+                    <div class="code-block">
+                        <div class="code-header"><span>Response — 200 OK</span></div>
+                        <pre><code>{
+  <span class="token-property">"agents"</span>: [
+    {
+      <span class="token-property">"id"</span>: <span class="token-string">"finance-ai"</span>,
+      <span class="token-property">"status"</span>: <span class="token-string">"active"</span>,
+      <span class="token-property">"memory_usage"</span>: <span class="token-string">"847MB"</span>,
+      <span class="token-property">"context_routes"</span>: <span class="token-number">1247</span>,
+      <span class="token-property">"last_sync"</span>: <span class="token-string">"2025-01-15T08:42:00Z"</span>,
+      <span class="token-property">"semantic_health"</span>: <span class="token-number">0.98</span>
+    },
+    {
+      <span class="token-property">"id"</span>: <span class="token-string">"support-bot"</span>,
+      <span class="token-property">"status"</span>: <span class="token-string">"active"</span>,
+      <span class="token-property">"memory_usage"</span>: <span class="token-string">"312MB"</span>,
+      <span class="token-property">"context_routes"</span>: <span class="token-number">8934</span>,
+      <span class="token-property">"last_sync"</span>: <span class="token-string">"2025-01-15T08:41:55Z"</span>,
+      <span class="token-property">"semantic_health"</span>: <span class="token-number">0.95</span>
+    }
+  ],
+  <span class="token-property">"total_active"</span>: <span class="token-number">12</span>,
+  <span class="token-property">"cluster_health"</span>: <span class="token-string">"optimal"</span>
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Agents Section -->
+            <section class="doc-section" id="agents">
+                <div class="doc-header">
+                    <span class="doc-badge">Integration</span>
+                    <h1>Agent Systems</h1>
+                    <p class="doc-lead">Multi-agent coordination, state management, and context negotiation.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Agent Registration</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>agents.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { AgentRegistry, Agent } <span class="token-keyword">from</span> <span class="token-string">'@contextship/sdk'</span>;
+
+<span class="token-keyword">const</span> registry = <span class="token-keyword">new</span> <span class="token-function">AgentRegistry</span>(client);
+
+<span class="token-comment">// Register an agent with its context requirements</span>
+<span class="token-keyword">const</span> agent = <span class="token-keyword">await</span> registry.<span class="token-function">register</span>({
+  id: <span class="token-string">'finance-ai'</span>,
+  capabilities: [<span class="token-string">'analysis'</span>, <span class="token-string">'forecasting'</span>, <span class="token-string">'risk-assessment'</span>],
+  contextNeeds: {
+    sources: [<span class="token-string">'market-data'</span>, <span class="token-string">'user-portfolio'</span>],
+    freshness: <span class="token-string">'5m'</span>,
+    maxContext: <span class="token-string">'8192 tokens'</span>
+  },
+  governance: {
+    dataClassification: <span class="token-string">'confidential'</span>,
+    allowedRegions: [<span class="token-string">'us-east-1'</span>, <span class="token-string">'eu-west-1'</span>]
+  }
+});
+
+<span class="token-comment">// Agent-to-agent context sharing</span>
+<span class="token-keyword">await</span> agent.<span class="token-function">shareContext</span>({
+  target: <span class="token-string">'risk-analyzer'</span>,
+  context: analysisResult,
+  permissions: <span class="token-string">'read-only'</span>,
+  ttl: <span class="token-string">'1h'</span>
+});</code></pre>
+                    </div>
+                </div>
+                <div class="doc-block">
+                    <h2>Multi-Agent Orchestration</h2>
+                    <div class="code-block">
+                        <div class="code-header"><span>orchestration.ts</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-keyword">import</span> { Orchestrator } <span class="token-keyword">from</span> <span class="token-string">'@contextship/sdk'</span>;
+
+<span class="token-keyword">const</span> orchestrator = <span class="token-keyword">new</span> <span class="token-function">Orchestrator</span>(client);
+
+<span class="token-comment">// Define a multi-agent workflow</span>
+<span class="token-keyword">const</span> workflow = orchestrator.<span class="token-function">createWorkflow</span>({
+  name: <span class="token-string">'portfolio-analysis'</span>,
+  steps: [
+    { agent: <span class="token-string">'data-collector'</span>, action: <span class="token-string">'gather-market-data'</span> },
+    { agent: <span class="token-string">'risk-analyzer'</span>, action: <span class="token-string">'assess-risk'</span>, dependsOn: [<span class="token-number">0</span>] },
+    { agent: <span class="token-string">'finance-ai'</span>, action: <span class="token-string">'generate-report'</span>, dependsOn: [<span class="token-number">0</span>, <span class="token-number">1</span>] }
+  ],
+  contextSharing: <span class="token-string">'automatic'</span>,
+  checkpoint: <span class="token-keyword">true</span>
+});
+
+<span class="token-keyword">const</span> result = <span class="token-keyword">await</span> workflow.<span class="token-function">execute</span>();</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orchestration Section -->
+            <section class="doc-section" id="orchestration">
+                <div class="doc-header">
+                    <span class="doc-badge">Advanced</span>
+                    <h1>Orchestration</h1>
+                    <p class="doc-lead">Complex multi-step workflows with checkpointing, rollback, and deterministic replay.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Pipeline Definition</h2>
+                    <p>Orchestration pipelines define the flow of context through multiple processing stages. Each stage can transform, validate, or route context independently.</p>
+                    <div class="code-block">
+                        <div class="code-header"><span>pipeline.yaml</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-property">name</span>: enterprise-context-pipeline
+<span class="token-property">version</span>: <span class="token-string">"2.0"</span>
+
+<span class="token-property">stages</span>:
+  - <span class="token-property">name</span>: ingestion
+    <span class="token-property">type</span>: source
+    <span class="token-property">config</span>:
+      <span class="token-property">sources</span>: [<span class="token-string">knowledge-base</span>, <span class="token-string">real-time-feeds</span>]
+      <span class="token-property">batch_size</span>: <span class="token-number">100</span>
+      <span class="token-property">dedup</span>: <span class="token-keyword">true</span>
+
+  - <span class="token-property">name</span>: semantic-processing
+    <span class="token-property">type</span>: transform
+    <span class="token-property">config</span>:
+      <span class="token-property">embedding_model</span>: <span class="token-string">contextship-embed-v3</span>
+      <span class="token-property">chunking</span>: <span class="token-string">semantic</span>
+      <span class="token-property">overlap</span>: <span class="token-number">64</span>
+
+  - <span class="token-property">name</span>: governance-check
+    <span class="token-property">type</span>: policy
+    <span class="token-property">config</span>:
+      <span class="token-property">policies</span>: [<span class="token-string">pii-redaction</span>, <span class="token-string">access-control</span>]
+      <span class="token-property">on_violation</span>: <span class="token-string">quarantine</span>
+
+  - <span class="token-property">name</span>: routing
+    <span class="token-property">type</span>: router
+    <span class="token-property">config</span>:
+      <span class="token-property">strategy</span>: <span class="token-string">deterministic</span>
+      <span class="token-property">targets</span>: <span class="token-string">auto-discover</span>
+
+<span class="token-property">observability</span>:
+  <span class="token-property">tracing</span>: <span class="token-keyword">true</span>
+  <span class="token-property">metrics</span>: <span class="token-keyword">true</span>
+  <span class="token-property">alerting</span>:
+    <span class="token-property">latency_p99</span>: <span class="token-string">50ms</span>
+    <span class="token-property">error_rate</span>: <span class="token-string">0.1%</span></code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Observability Section -->
+            <section class="doc-section" id="observability">
+                <div class="doc-header">
+                    <span class="doc-badge">Advanced</span>
+                    <h1>Observability</h1>
+                    <p class="doc-lead">Full-stack tracing, metrics, and debugging for context infrastructure.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Distributed Tracing</h2>
+                    <p>Every context operation generates a trace spanning the full lifecycle—from ingestion through routing, validation, and delivery.</p>
+                    <div class="code-block">
+                        <div class="code-header"><span>Trace Output</span></div>
+                        <pre><code>Trace: tr_8fK2nM9pX4vQ
+├─ Span: api-gateway        [2ms]
+├─ Span: authentication     [1ms]
+├─ Span: context-router     [3ms]
+│  ├─ rule-matching         [1ms]
+│  └─ target-resolution     [2ms]
+├─ Span: semantic-layer     [4ms]
+│  ├─ validation            [2ms]
+│  ├─ deduplication         [1ms]
+│  └─ compression           [1ms]
+├─ Span: memory-retrieval   [8ms]
+│  ├─ vector-search         [5ms]
+│  └─ merge-results         [3ms]
+├─ Span: governance         [2ms]
+│  ├─ policy-check          [1ms]
+│  └─ audit-log             [1ms]
+└─ Span: delivery           [1ms]
+
+Total: 21ms | Status: OK | Policies: 4 passed</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deployment Section -->
+            <section class="doc-section" id="deployment">
+                <div class="doc-header">
+                    <span class="doc-badge">Advanced</span>
+                    <h1>Deployment</h1>
+                    <p class="doc-lead">Deploy ContextShip across cloud providers, edge locations, and on-premise infrastructure.</p>
+                </div>
+                <div class="doc-block">
+                    <h2>Deployment Options</h2>
+                    <table class="doc-table">
+                        <thead><tr><th>Option</th><th>Latency</th><th>Best For</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>Cloud Managed</code></td><td>&lt;10ms</td><td>Most workloads, zero ops</td></tr>
+                            <tr><td><code>Edge Deploy</code></td><td>&lt;5ms</td><td>Latency-critical applications</td></tr>
+                            <tr><td><code>On-Premise</code></td><td>Variable</td><td>Data sovereignty requirements</td></tr>
+                            <tr><td><code>Hybrid</code></td><td>&lt;15ms</td><td>Mixed workloads with compliance</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="code-block">
+                        <div class="code-header"><span>CLI Deployment</span><button class="copy-btn">Copy</button></div>
+                        <pre><code><span class="token-comment"># Deploy to production</span>
+$ contextship deploy --env production --region us-east-1
+
+<span class="token-comment"># Deploy globally with edge replication</span>
+$ contextship deploy --env production --region global --edge
+
+<span class="token-comment"># Deploy on-premise with custom config</span>
+$ contextship deploy --env production --config ./deploy.yaml --on-prem</code></pre>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a2e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6b6b80;
+    --accent-purple: #8b5cf6;
+    --accent-blue: #3b82f6;
+    --accent-cyan: #06b6d4;
+    --accent-green: #10b981;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --sidebar-width: 280px;
+}
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.docs-layout { display: flex; min-height: 100vh; }
+.docs-sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--glass-border);
+    overflow-y: auto;
+    z-index: 100;
+    padding: 1.5rem 0;
+    transition: transform 0.3s ease;
+}
+.sidebar-header {
+    padding: 0 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.sidebar-logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+}
+.sidebar-version {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 4px;
+    color: var(--accent-purple);
+}
+.sidebar-nav { padding: 1rem 0; }
+.nav-group { margin-bottom: 1.5rem; }
+.nav-group-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding: 0 1.5rem;
+    margin-bottom: 0.5rem;
+}
+.nav-item {
+    display: block;
+    padding: 0.4rem 1.5rem 0.4rem 2rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+    border-left: 2px solid transparent;
+}
+.nav-item:hover { color: var(--text-primary); background: rgba(255,255,255,0.02); }
+.nav-item.active {
+    color: var(--accent-purple);
+    border-left-color: var(--accent-purple);
+    background: rgba(139, 92, 246, 0.05);
+}
+.docs-main {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    min-width: 0;
+}
+.docs-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+}
+.sidebar-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.25rem; cursor: pointer; }
+.topbar-breadcrumb { font-size: 0.85rem; color: var(--text-muted); }
+.topbar-actions { display: flex; gap: 1.5rem; }
+.topbar-link { font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+.topbar-link:hover { color: var(--text-primary); }
+.docs-content { max-width: 840px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+.doc-section { display: none; animation: fadeIn 0.3s ease; }
+.doc-section.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.doc-header { margin-bottom: 3rem; }
+.doc-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-purple);
+    padding: 0.25rem 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 100px;
+    margin-bottom: 1rem;
+}
+.doc-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.75rem;
+}
+.doc-lead { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; max-width: 640px; }
+.doc-block { margin-bottom: 3rem; }
+.doc-block h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
+.doc-block p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+.doc-block ul { list-style: none; padding: 0; margin-bottom: 1rem; }
+.doc-block ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+.doc-block ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-purple);
+    border-radius: 50%;
+}
+.doc-block strong { color: var(--text-primary); }
+</style>
+
+
+<style>
+/* Code blocks */
+.code-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 1px solid var(--glass-border); }
+.code-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+.code-tab:hover { color: var(--text-secondary); }
+.code-tab.active { color: var(--accent-purple); border-bottom-color: var(--accent-purple); }
+.code-block {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+.code-block.hidden { display: none; }
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+.copy-btn {
+    background: none;
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.copy-btn:hover { color: var(--text-primary); border-color: var(--accent-purple); }
+.code-block pre {
+    padding: 1.25rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'SF Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+.code-block code { color: #e2e8f0; }
+.token-keyword { color: #c084fc; }
+.token-string { color: #6ee7b7; }
+.token-comment { color: #6b7280; font-style: italic; }
+.token-function { color: #93c5fd; }
+.token-property { color: #7dd3fc; }
+.token-number { color: #fbbf24; }
+
+/* Callouts */
+.doc-callout {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    margin: 1.5rem 0;
+}
+.doc-callout.success {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.2);
+}
+.callout-icon { font-size: 1.25rem; flex-shrink: 0; }
+.callout-content { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; }
+.callout-content strong { color: var(--text-primary); }
+
+/* Tables */
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.875rem;
+}
+.doc-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.doc-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary);
+}
+.doc-table code {
+    background: rgba(139, 92, 246, 0.1);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--accent-purple);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Cards */
+.doc-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 2rem 0; }
+.doc-card {
+    padding: 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.doc-card:hover { border-color: rgba(139, 92, 246, 0.3); transform: translateY(-2px); }
+.doc-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+.doc-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-primary); }
+.doc-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+/* API Endpoints */
+.api-endpoint {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+.api-method {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+.api-method.post { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); }
+.api-method.get { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+.api-path { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-primary); }
+
+/* Architecture Diagram */
+.arch-diagram { margin: 2rem 0; }
+.arch-layer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+.arch-layer:hover { border-color: rgba(139, 92, 246, 0.3); }
+.arch-layer-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent-purple);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+.arch-layer-content strong { display: block; font-size: 0.9rem; margin-bottom: 0.2rem; }
+.arch-layer-content span { font-size: 0.8rem; color: var(--text-muted); }
+.arch-arrow { text-align: center; padding: 0.3rem; color: var(--accent-purple); font-size: 1.2rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .docs-sidebar { transform: translateX(-100%); }
+    .docs-sidebar.open { transform: translateX(0); }
+    .docs-main { margin-left: 0; }
+    .sidebar-toggle { display: block; }
+    .doc-card-grid { grid-template-columns: 1fr; }
+    .docs-content { padding: 2rem 1rem; }
+    .doc-header h1 { font-size: 1.75rem; }
+}
+</style>
+
+
+<script>
+// Section navigation
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = this.dataset.section;
+        document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById(section).classList.add('active');
+        this.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.innerWidth < 768) document.getElementById('sidebar').classList.remove('open');
+    });
+});
+
+// Doc cards navigation
+document.querySelectorAll('.doc-card[data-nav]').forEach(card => {
+    card.addEventListener('click', function(e) {
+        e.preventDefault();
+        const section = this.dataset.nav;
+        document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById(section).classList.add('active');
+        document.querySelector(`[data-section="${section}"]`).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
+// Code tabs
+document.querySelectorAll('.code-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        const lang = this.dataset.lang;
+        const parent = this.closest('.doc-block');
+        parent.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+        parent.querySelectorAll('.code-block[data-lang]').forEach(b => b.classList.add('hidden'));
+        this.classList.add('active');
+        parent.querySelector(`.code-block[data-lang="${lang}"]`).classList.remove('hidden');
+    });
+});
+
+// Copy buttons
+document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const code = this.closest('.code-block').querySelector('code').textContent;
+        navigator.clipboard.writeText(code);
+        this.textContent = 'Copied!';
+        setTimeout(() => this.textContent = 'Copy', 2000);
+    });
+});
+
+// Sidebar toggle
+document.getElementById('sidebarToggle').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.toggle('open');
+});
+
+// Handle hash navigation
+if (window.location.hash) {
+    const section = window.location.hash.slice(1);
+    const el = document.getElementById(section);
+    if (el && el.classList.contains('doc-section')) {
+        document.querySelectorAll('.doc-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        el.classList.add('active');
+        const navItem = document.querySelector(`[data-section="${section}"]`);
+        if (navItem) navItem.classList.add('active');
+    }
+}
+</script>
+</body>
+</html>
