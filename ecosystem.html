@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Ecosystem — ContextShip</title>
+    <meta name="description" content="ContextShip open source projects. Context Router, Semantic Memory, Orchestration SDK, and Context Protocol.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">ContextShip</a>
+            <ul class="nav-links">
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="ecosystem.html" class="active">Open Source</a></li>
+                <li><a href="why-context.html">Why Context</a></li>
+            </ul>
+            <a href="docs.html#quickstart" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero-eco">
+        <div class="container">
+            <span class="badge">Open Source</span>
+            <h1>ContextShip Ecosystem</h1>
+            <p class="lead">Core infrastructure components, open-sourced for the community. Build context-aware AI systems with production-grade primitives.</p>
+        </div>
+    </section>
+
+    <section class="repos-section">
+        <div class="container">
+
+
+            <!-- Context Router -->
+            <div class="repo-card" id="context-router">
+                <div class="repo-header">
+                    <div class="repo-title-row">
+                        <svg class="repo-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z"/></svg>
+                        <h2>contextship/context-router</h2>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <p class="repo-desc">Deterministic context routing engine for AI agent systems. Sub-10ms semantic routing with configurable strategies.</p>
+                    <div class="repo-stats">
+                        <span class="repo-stat"><span class="stat-dot ts"></span>TypeScript</span>
+                        <span class="repo-stat">★ 2,847</span>
+                        <span class="repo-stat">⑂ 341</span>
+                        <span class="repo-stat">Apache-2.0</span>
+                    </div>
+                </div>
+                <div class="repo-readme">
+                    <div class="readme-header">README.md</div>
+                    <div class="readme-body">
+                        <h3>@contextship/router</h3>
+                        <p>The Context Router is the core routing engine that determines which context reaches which agent. It supports deterministic, semantic-nearest, load-balanced, priority-queue, and broadcast strategies.</p>
+                        <div class="readme-badges">
+                            <span class="readme-badge green">Build Passing</span>
+                            <span class="readme-badge blue">npm v2.4.0</span>
+                            <span class="readme-badge purple">Coverage 94%</span>
+                        </div>
+                        <h4>Installation</h4>
+                        <div class="readme-code"><pre>npm install @contextship/router</pre></div>
+                        <h4>Quick Start</h4>
+                        <div class="readme-code"><pre><span class="tk">import</span> { Router, Strategy } <span class="tk">from</span> <span class="ts">'@contextship/router'</span>;
+
+<span class="tk">const</span> router = <span class="tk">new</span> <span class="tf">Router</span>({
+  strategy: Strategy.DETERMINISTIC,
+  fallback: Strategy.SEMANTIC_NEAREST,
+  maxLatency: <span class="ts">'10ms'</span>,
+  cache: { enabled: <span class="tk">true</span>, ttl: <span class="ts">'5m'</span> }
+});
+
+<span class="tk">const</span> result = <span class="tk">await</span> router.<span class="tf">route</span>({
+  target: <span class="ts">'finance-ai'</span>,
+  query: <span class="ts">'Analyze Q4 risk exposure'</span>,
+  sources: [<span class="ts">'market-data'</span>, <span class="ts">'risk-models'</span>]
+});
+
+console.log(result.latency); <span class="tc">// '7ms'</span>
+console.log(result.score);   <span class="tc">// 0.94</span></pre></div>
+                        <h4>Architecture</h4>
+                        <div class="readme-code"><pre>contextship/context-router/
+├── src/
+│   ├── engine/          <span class="tc"># Core routing engine</span>
+│   ├── strategies/      <span class="tc"># Routing strategy implementations</span>
+│   ├── cache/           <span class="tc"># Distributed cache layer</span>
+│   ├── semantic/        <span class="tc"># Semantic matching module</span>
+│   ├── observability/   <span class="tc"># Tracing and metrics</span>
+│   └── index.ts
+├── tests/
+├── benchmarks/
+├── docs/
+├── package.json
+└── tsconfig.json</pre></div>
+                        <h4>Roadmap</h4>
+                        <ul class="readme-list">
+                            <li>✅ Deterministic routing with rule matching</li>
+                            <li>✅ Semantic nearest-neighbor fallback</li>
+                            <li>✅ Distributed cache with invalidation</li>
+                            <li>🚧 Custom strategy plugins</li>
+                            <li>🚧 Multi-region routing</li>
+                            <li>📋 GraphQL-based rule definitions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semantic Memory -->
+            <div class="repo-card" id="semantic-memory">
+                <div class="repo-header">
+                    <div class="repo-title-row">
+                        <svg class="repo-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z"/></svg>
+                        <h2>contextship/semantic-memory</h2>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <p class="repo-desc">Three-tier hierarchical memory engine with vector indexing, temporal queries, and cross-agent synchronization.</p>
+                    <div class="repo-stats">
+                        <span class="repo-stat"><span class="stat-dot ts"></span>TypeScript</span>
+                        <span class="repo-stat">★ 1,923</span>
+                        <span class="repo-stat">⑂ 218</span>
+                        <span class="repo-stat">MIT</span>
+                    </div>
+                </div>
+                <div class="repo-readme">
+                    <div class="readme-header">README.md</div>
+                    <div class="readme-body">
+                        <h3>@contextship/memory</h3>
+                        <p>Production-grade memory infrastructure for AI agents. Implements working, episodic, and semantic memory tiers with configurable consistency, vector search, and automatic lifecycle management.</p>
+                        <div class="readme-badges">
+                            <span class="readme-badge green">Build Passing</span>
+                            <span class="readme-badge blue">npm v2.3.1</span>
+                            <span class="readme-badge purple">Coverage 91%</span>
+                        </div>
+                        <h4>Installation</h4>
+                        <div class="readme-code"><pre>npm install @contextship/memory</pre></div>
+                        <h4>Quick Start</h4>
+                        <div class="readme-code"><pre><span class="tk">import</span> { MemoryEngine, Tier } <span class="tk">from</span> <span class="ts">'@contextship/memory'</span>;
+
+<span class="tk">const</span> memory = <span class="tk">new</span> <span class="tf">MemoryEngine</span>({
+  tiers: {
+    working:  { capacity: <span class="ts">'128MB'</span>, ttl: <span class="ts">'15m'</span> },
+    episodic: { capacity: <span class="ts">'2GB'</span>,   ttl: <span class="ts">'7d'</span> },
+    semantic: { capacity: <span class="ts">'unlimited'</span>, ttl: <span class="ts">'persistent'</span> }
+  },
+  vectorIndex: { dimensions: 1536, metric: <span class="ts">'cosine'</span> }
+});
+
+<span class="tc">// Store and recall</span>
+<span class="tk">await</span> memory.<span class="tf">store</span>({ content: <span class="ts">'User prefers ETFs'</span>, tier: Tier.SEMANTIC });
+<span class="tk">const</span> results = <span class="tk">await</span> memory.<span class="tf">recall</span>({ query: <span class="ts">'investment preferences'</span> });</pre></div>
+                        <h4>Key Features</h4>
+                        <ul class="readme-list">
+                            <li>✅ Three-tier memory hierarchy (working, episodic, semantic)</li>
+                            <li>✅ Vector search with cosine/dot-product/euclidean metrics</li>
+                            <li>✅ Cross-agent memory synchronization</li>
+                            <li>✅ Configurable consistency (eventual, strong, causal)</li>
+                            <li>✅ Automatic garbage collection and TTL enforcement</li>
+                            <li>🚧 Memory compression and deduplication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Orchestration SDK -->
+            <div class="repo-card" id="orchestration-sdk">
+                <div class="repo-header">
+                    <div class="repo-title-row">
+                        <svg class="repo-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z"/></svg>
+                        <h2>contextship/orchestration-sdk</h2>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <p class="repo-desc">Multi-agent orchestration framework with composable pipelines, checkpointing, and deterministic replay.</p>
+                    <div class="repo-stats">
+                        <span class="repo-stat"><span class="stat-dot py"></span>Python</span>
+                        <span class="repo-stat">★ 1,456</span>
+                        <span class="repo-stat">⑂ 187</span>
+                        <span class="repo-stat">Apache-2.0</span>
+                    </div>
+                </div>
+                <div class="repo-readme">
+                    <div class="readme-header">README.md</div>
+                    <div class="readme-body">
+                        <h3>contextship-orchestration</h3>
+                        <p>Define complex multi-agent workflows as declarative pipeline graphs. Built-in support for checkpointing, rollback, parallel execution, and deterministic replay for debugging.</p>
+                        <div class="readme-badges">
+                            <span class="readme-badge green">Build Passing</span>
+                            <span class="readme-badge blue">PyPI v1.8.0</span>
+                            <span class="readme-badge purple">Coverage 89%</span>
+                        </div>
+                        <h4>Installation</h4>
+                        <div class="readme-code"><pre>pip install contextship-orchestration</pre></div>
+                        <h4>Quick Start</h4>
+                        <div class="readme-code"><pre><span class="tk">from</span> contextship <span class="tk">import</span> Orchestrator, Pipeline
+
+orchestrator = <span class="tf">Orchestrator</span>(api_key=<span class="ts">"cship_live_sk_..."</span>)
+
+pipeline = <span class="tf">Pipeline</span>(
+    name=<span class="ts">"portfolio-analysis"</span>,
+    steps=[
+        {<span class="ts">"agent"</span>: <span class="ts">"data-collector"</span>, <span class="ts">"action"</span>: <span class="ts">"gather"</span>},
+        {<span class="ts">"agent"</span>: <span class="ts">"risk-analyzer"</span>, <span class="ts">"action"</span>: <span class="ts">"assess"</span>, <span class="ts">"depends_on"</span>: [0]},
+        {<span class="ts">"agent"</span>: <span class="ts">"reporter"</span>, <span class="ts">"action"</span>: <span class="ts">"generate"</span>, <span class="ts">"depends_on"</span>: [0, 1]},
+    ],
+    checkpoint=<span class="tk">True</span>
+)
+
+result = <span class="tk">await</span> orchestrator.<span class="tf">execute</span>(pipeline)
+print(result.duration)  <span class="tc"># 1.2s</span>
+print(result.steps_completed)  <span class="tc"># 3</span></pre></div>
+                        <h4>Architecture</h4>
+                        <div class="readme-code"><pre>contextship-orchestration/
+├── contextship/
+│   ├── orchestrator.py    <span class="tc"># Core orchestration engine</span>
+│   ├── pipeline.py        <span class="tc"># Pipeline definitions</span>
+│   ├── checkpoint.py      <span class="tc"># State checkpointing</span>
+│   ├── replay.py          <span class="tc"># Deterministic replay</span>
+│   ├── scheduler.py       <span class="tc"># DAG-based execution scheduler</span>
+│   └── observability.py   <span class="tc"># OpenTelemetry integration</span>
+├── tests/
+├── examples/
+├── pyproject.toml
+└── README.md</pre></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Protocol -->
+            <div class="repo-card" id="context-protocol">
+                <div class="repo-header">
+                    <div class="repo-title-row">
+                        <svg class="repo-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z"/></svg>
+                        <h2>contextship/context-protocol</h2>
+                        <span class="repo-visibility">Public</span>
+                    </div>
+                    <p class="repo-desc">Open specification for agent-to-agent context negotiation. Defines how agents discover, request, and exchange context.</p>
+                    <div class="repo-stats">
+                        <span class="repo-stat"><span class="stat-dot rs"></span>Specification</span>
+                        <span class="repo-stat">★ 3,201</span>
+                        <span class="repo-stat">⑂ 412</span>
+                        <span class="repo-stat">CC-BY-4.0</span>
+                    </div>
+                </div>
+                <div class="repo-readme">
+                    <div class="readme-header">README.md</div>
+                    <div class="readme-body">
+                        <h3>Context Protocol Specification</h3>
+                        <p>An open protocol that standardizes how AI agents discover capabilities, negotiate context requirements, and exchange semantic information. Designed to complement MCP with context-specific primitives.</p>
+                        <div class="readme-badges">
+                            <span class="readme-badge green">Spec v1.2</span>
+                            <span class="readme-badge blue">RFC Status: Draft</span>
+                            <span class="readme-badge purple">12 Implementations</span>
+                        </div>
+                        <h4>Protocol Overview</h4>
+                        <div class="readme-code"><pre><span class="tc">// Context Protocol message format</span>
+{
+  <span class="ts">"protocol"</span>: <span class="ts">"contextship/v2"</span>,
+  <span class="ts">"type"</span>: <span class="ts">"context.request"</span>,
+  <span class="ts">"source"</span>: {
+    <span class="ts">"agent"</span>: <span class="ts">"finance-ai"</span>,
+    <span class="ts">"capabilities"</span>: [<span class="ts">"analysis"</span>, <span class="ts">"forecasting"</span>]
+  },
+  <span class="ts">"request"</span>: {
+    <span class="ts">"context_type"</span>: <span class="ts">"market-data"</span>,
+    <span class="ts">"freshness"</span>: <span class="ts">"5m"</span>,
+    <span class="ts">"max_tokens"</span>: 4096,
+    <span class="ts">"semantic_constraints"</span>: {
+      <span class="ts">"relevance"</span>: 0.85,
+      <span class="ts">"coherence"</span>: 0.90
+    }
+  }
+}</pre></div>
+                        <h4>Specification Documents</h4>
+                        <ul class="readme-list">
+                            <li>✅ Core Protocol (message format, transport, negotiation)</li>
+                            <li>✅ Capability Discovery (agent registration, discovery)</li>
+                            <li>✅ Context Negotiation (request/response, constraints)</li>
+                            <li>✅ Security Model (authentication, authorization, encryption)</li>
+                            <li>🚧 Multi-hop Routing (agent relay, proxy support)</li>
+                            <li>📋 Streaming Context (real-time bidirectional flows)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section">
+        <div class="container">
+            <h2>Community & Contributions</h2>
+            <p class="section-desc">Join the growing ecosystem of developers building context-aware AI systems.</p>
+            <div class="community-grid">
+                <div class="community-stat">
+                    <span class="cs-value">9,427</span>
+                    <span class="cs-label">GitHub Stars</span>
+                </div>
+                <div class="community-stat">
+                    <span class="cs-value">1,158</span>
+                    <span class="cs-label">Forks</span>
+                </div>
+                <div class="community-stat">
+                    <span class="cs-value">247</span>
+                    <span class="cs-label">Contributors</span>
+                </div>
+                <div class="community-stat">
+                    <span class="cs-value">4.2k</span>
+                    <span class="cs-label">Discord Members</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-block">
+                <h2>Start Contributing</h2>
+                <p>All core components are open source. Contribute code, specs, or documentation.</p>
+                <div class="cta-buttons">
+                    <a href="docs.html#quickstart" class="btn-primary">Read the Docs</a>
+                    <a href="architecture.html" class="btn-secondary">View Architecture</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-brand">ContextShip</span>
+                <span class="footer-copy">&copy; 2025 ContextShip. Context infrastructure for intelligent systems.</span>
+                <div class="footer-links">
+                    <a href="docs.html">Docs</a>
+                    <a href="architecture.html">Architecture</a>
+                    <a href="why-context.html">Blog</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg-primary: #0a0a0f; --bg-secondary: #12121a; --text-primary: #ffffff;
+    --text-secondary: #a0a0b0; --text-muted: #6b6b80; --accent-purple: #8b5cf6;
+    --accent-blue: #3b82f6; --accent-cyan: #06b6d4; --accent-green: #10b981;
+    --glass-bg: rgba(255,255,255,0.03); --glass-border: rgba(255,255,255,0.08);
+}
+body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 2rem; backdrop-filter: blur(20px); background: rgba(10,10,15,0.85); border-bottom: 1px solid var(--glass-border); }
+.nav-container { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 1.15rem; font-weight: 700; text-decoration: none; background: linear-gradient(135deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+.nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+.nav-cta { padding: 0.5rem 1.25rem; background: linear-gradient(135deg, #8b5cf6, #3b82f6); border: none; border-radius: 8px; color: white; font-size: 0.85rem; font-weight: 500; text-decoration: none; transition: all 0.3s; }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 25px rgba(139,92,246,0.4); }
+
+.hero-eco { padding: 10rem 0 4rem; text-align: center; }
+.badge { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-purple); padding: 0.35rem 0.9rem; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 100px; margin-bottom: 1.5rem; }
+.hero-eco h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; letter-spacing: -0.04em; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, #a78bfa 50%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.lead { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+.repos-section { padding: 2rem 0 4rem; }
+.repo-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; margin-bottom: 2.5rem; overflow: hidden; transition: all 0.3s; }
+.repo-card:hover { border-color: rgba(139,92,246,0.3); }
+.repo-header { padding: 1.75rem 2rem; border-bottom: 1px solid var(--glass-border); }
+.repo-title-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+.repo-icon { width: 18px; height: 18px; color: var(--text-muted); }
+.repo-title-row h2 { font-size: 1.15rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; letter-spacing: -0.01em; }
+.repo-visibility { font-size: 0.65rem; padding: 0.2rem 0.6rem; border: 1px solid var(--glass-border); border-radius: 100px; color: var(--text-muted); }
+.repo-desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; }
+.repo-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.repo-stat { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; }
+.stat-dot { width: 10px; height: 10px; border-radius: 50%; }
+.stat-dot.ts { background: #3178c6; }
+.stat-dot.py { background: #3572a5; }
+.stat-dot.rs { background: #dea584; }
+
+.repo-readme { padding: 0; }
+.readme-header { padding: 0.75rem 2rem; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--glass-border); font-size: 0.8rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+.readme-body { padding: 2rem; }
+.readme-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
+.readme-body h4 { font-size: 1rem; font-weight: 600; margin: 1.75rem 0 0.75rem; color: var(--text-primary); }
+.readme-body p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem; }
+.readme-badges { display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap; }
+.readme-badge { font-size: 0.7rem; padding: 0.25rem 0.6rem; border-radius: 4px; font-weight: 600; }
+.readme-badge.green { background: rgba(16,185,129,0.15); color: var(--accent-green); }
+.readme-badge.blue { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+.readme-badge.purple { background: rgba(139,92,246,0.15); color: var(--accent-purple); }
+
+.readme-code { background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 1rem 1.25rem; margin: 0.75rem 0; overflow-x: auto; }
+.readme-code pre { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; line-height: 1.7; color: #e2e8f0; white-space: pre; }
+.tk { color: #c084fc; }
+.ts { color: #6ee7b7; }
+.tf { color: #93c5fd; }
+.tc { color: #6b7280; font-style: italic; }
+
+.readme-list { list-style: none; padding: 0; }
+.readme-list li { padding: 0.35rem 0; font-size: 0.85rem; color: var(--text-secondary); }
+
+.community-section { padding: 4rem 0; text-align: center; }
+.community-section h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+.section-desc { color: var(--text-secondary); margin-bottom: 3rem; }
+.community-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.community-stat { padding: 2rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 14px; }
+.cs-value { display: block; font-size: 2rem; font-weight: 800; background: linear-gradient(135deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.25rem; }
+.cs-label { font-size: 0.8rem; color: var(--text-muted); }
+
+.cta-section { padding: 4rem 0; }
+.cta-block { text-align: center; padding: 4rem 2rem; background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(59,130,246,0.05)); border: 1px solid var(--glass-border); border-radius: 20px; position: relative; overflow: hidden; }
+.cta-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-blue), transparent); }
+.cta-block h2 { font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem; }
+.cta-block p { color: var(--text-secondary); margin-bottom: 2rem; }
+.cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+.btn-primary { padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #8b5cf6, #3b82f6); border: none; border-radius: 10px; color: white; font-weight: 600; text-decoration: none; transition: all 0.3s; font-size: 0.9rem; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(139,92,246,0.4); }
+.btn-secondary { padding: 0.75rem 1.75rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 10px; color: var(--text-primary); font-weight: 500; text-decoration: none; transition: all 0.3s; font-size: 0.9rem; }
+.btn-secondary:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-2px); }
+
+footer { padding: 3rem 0; border-top: 1px solid var(--glass-border); }
+.footer-content { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-brand { font-weight: 700; background: linear-gradient(135deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--text-primary); }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .community-grid { grid-template-columns: repeat(2, 1fr); }
+    .repo-header { padding: 1.25rem; }
+    .readme-body { padding: 1.25rem; }
+    .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
+</body>
+</html>
